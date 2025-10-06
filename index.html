@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamKeys - Win Your Dream Year in London!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="screen-content">
+                <div class="logo-container">
+                    <h1 class="app-logo">DreamKeys</h1>
+                    <p class="tagline">Your key to London living</p>
+                </div>
+                <div class="welcome-content">
+                    <h2>Stand a chance to win a year's free rent in London!</h2>
+                    <p>Amazing opportunities for young professionals to live in London's most exciting neighborhoods. Enter our raffle for just £1 and change your life!</p>
+                    <div class="competition-highlight">
+                        <div class="highlight-item">
+                            <div class="highlight-number">3</div>
+                            <div class="highlight-text">Properties this month</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-number">2,847</div>
+                            <div class="highlight-text">People entered</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-number">Dec 15</div>
+                            <div class="highlight-text">Next draw</div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <button class="btn btn--primary btn--lg btn--full-width" id="get-started-btn">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Type Selection -->
+        <div id="user-type-screen" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-welcome">‹ Back</button>
+                    <h3>I am a...</h3>
+                </div>
+                <div class="user-type-cards">
+                    <div class="user-type-card primary-option" id="select-tenant">
+                        <div class="card-icon">🎉</div>
+                        <h3>Young Professional</h3>
+                        <p>I want to enter the competition to win free rent in London!</p>
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="card-arrow">→</div>
+                    </div>
+                    <div class="user-type-card secondary-option" id="select-landlord">
+                        <div class="card-icon">🏠</div>
+                        <h3>Property Owner</h3>
+                        <p>I want to register my property for guaranteed rent</p>
+                        <div class="card-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competition Properties (Tenant Main Screen) -->
+        <div id="tenant-listings" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-usertype-2">‹ Back</button>
+                    <h3>Win Amazing Properties</h3>
+                </div>
+                
+                <div class="competition-status">
+                    <div class="status-card">
+                        <h4>🎯 Next Draw: December 15, 2025</h4>
+                        <p>2,847 people have entered this month's competition</p>
+                    </div>
+                </div>
+
+                <div class="how-it-works">
+                    <h4>How It Works</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">Choose your dream property</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">Buy tickets (£1, £5, or £10 bundles)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">Wait for the draw - you could win!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="competition-properties-list" class="competition-properties">
+                    <!-- Competition properties will be populated by JavaScript -->
+                </div>
+
+                <div class="success-stories">
+                    <h4>Recent Winners</h4>
+                    <div class="stories">
+                        <div class="story">
+                            <strong>Emma, 26</strong> - Marketing Manager<br>
+                            "Won a year in Shoreditch - changed my life!"
+                        </div>
+                        <div class="story">
+                            <strong>James, 29</strong> - Software Developer<br>
+                            "From Manchester to Canary Wharf winner!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Detail for Competition -->
+        <div id="property-detail" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-listings">‹ Back</button>
+                    <h3>Competition Property</h3>
+                </div>
+                <div id="property-detail-content">
+                    <!-- Property details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Ticket Purchase -->
+        <div id="ticket-purchase" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-property-detail">‹ Back</button>
+                    <h3>Enter Competition</h3>
+                </div>
+                <div class="selected-property-info">
+                    <div id="selected-property-summary">
+                        <!-- Property summary will be populated -->
+                    </div>
+                </div>
+                <div class="ticket-bundles">
+                    <h4>Choose Your Entry Bundle</h4>
+                    <p class="bundle-description">More tickets = better chances to win!</p>
+                    <div class="bundle-cards">
+                        <div class="bundle-card" data-bundle="1">
+                            <div class="bundle-tickets">1 Ticket</div>
+                            <div class="bundle-price">£1</div>
+                            <div class="bundle-desc">Try your luck!</div>
+                        </div>
+                        <div class="bundle-card popular" data-bundle="2">
+                            <div class="bundle-popular">Most Popular</div>
+                            <div class="bundle-tickets">5 Tickets</div>
+                            <div class="bundle-price">£5</div>
+                            <div class="bundle-desc">Best value - 5x the chances!</div>
+                        </div>
+                        <div class="bundle-card" data-bundle="3">
+                            <div class="bundle-tickets">10 Tickets</div>
+                            <div class="bundle-price">£10</div>
+                            <div class="bundle-desc">Maximum chances to win!</div>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg btn--full-width" disabled id="purchase-btn">
+                        Select a Bundle
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Landlord Registration -->
+        <div id="landlord-registration" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-usertype">‹ Back</button>
+                    <h3>Property Owner Registration</h3>
+                </div>
+                <div class="registration-intro">
+                    <p>Join DreamKeys to offer your properties for guaranteed annual rent while supporting young professionals in London.</p>
+                </div>
+                <form class="registration-form" id="landlord-reg-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="landlord-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="landlord-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="landlord-phone" placeholder="+44 7xxx xxx xxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Number of Properties</label>
+                        <select class="form-control" id="property-count" required>
+                            <option value="">Select number of properties</option>
+                            <option value="1">1 property</option>
+                            <option value="2-5">2-5 properties</option>
+                            <option value="6-10">6-10 properties</option>
+                            <option value="10+">More than 10</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Landlord Dashboard -->
+        <div id="landlord-dashboard" class="screen">
+            <div class="screen-content">
+                <div class="dashboard-header">
+                    <div class="user-greeting">
+                        <h2>Welcome, <span id="user-name-display">John</span></h2>
+                        <p class="date-display">Monday, October 6, 2025</p>
+                    </div>
+                    <div class="notification-badge">
+                        <button class="btn-notification" id="notifications-btn">🔔</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="monthly-rent-stat">£8,400</div>
+                        <div class="stat-label">Monthly Rent</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="property-count-stat">3</div>
+                        <div class="stat-label">Properties</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="guaranteed-offer-stat">£91,000</div>
+                        <div class="stat-label">Guaranteed Offer</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h3>Your Properties</h3>
+                        <button class="btn btn--outline btn--sm" id="add-property-btn">+ Add Property</button>
+                    </div>
+                    <div id="properties-list" class="properties-list">
+                        <!-- Properties will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Guaranteed Rent Offers</h3>
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <h4>Annual Guaranteed Rent</h4>
+                            <div class="status status--success" id="offer-status">Available</div>
+                        </div>
+                        <div class="offer-amount">£91,000</div>
+                        <p class="offer-details">Lock in 12 months of guaranteed rent payments upfront</p>
+                        <button class="btn btn--primary btn--full-width" id="view-offer-btn">View Offer Details</button>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="action-btn" id="survey-btn">
+                        <span class="action-icon">📋</span>
+                        <span class="action-text">Complete Survey</span>
+                    </button>
+                    <button class="action-btn" id="help-btn">
+                        <span class="action-icon">❓</span>
+                        <span class="action-text">Help & Support</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guaranteed Rent Offer -->
+        <div id="guaranteed-rent-offer" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-dashboard">‹ Back</button>
+                    <h3>Guaranteed Rent Offer</h3>
+                </div>
+                <div class="offer-details-card">
+                    <div class="offer-highlight">
+                        <h2>£91,000</h2>
+                        <p>Annual Guaranteed Rent</p>
+                    </div>
+                    <div class="offer-breakdown">
+                        <div class="breakdown-item">
+                            <span>Total Monthly Rent</span>
+                            <span>£8,400</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Annual Value</span>
+                            <span>£100,800</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>DreamKeys Fee (10%)</span>
+                            <span>-£10,080</span>
+                        </div>
+                        <div class="breakdown-item total">
+                            <span>Your Guaranteed Amount</span>
+                            <span>£90,720</span>
+                        </div>
+                    </div>
+                    <div class="offer-benefits">
+                        <h4>What's Included:</h4>
+                        <ul>
+                            <li>✓ 100% guaranteed rent payments</li>
+                            <li>✓ Full property management</li>
+                            <li>✓ Maintenance and repairs handled</li>
+                            <li>✓ Tenant screening and placement</li>
+                            <li>✓ Legal protection and support</li>
+                        </ul>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="btn btn--primary btn--full-width" id="accept-offer-btn">Accept Offer</button>
+                        <button class="btn btn--outline btn--full-width" id="review-later-btn">Review Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Property -->
+        <div id="add-property" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-dashboard-2">‹ Back</button>
+                    <h3>Add New Property</h3>
+                </div>
+                <form class="property-form" id="add-property-form">
+                    <div class="form-group">
+                        <label class="form-label">Property Address</label>
+                        <input type="text" class="form-control" id="property-address" placeholder="Enter full address" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Monthly Rent (£)</label>
+                        <input type="number" class="form-control" id="property-rent" placeholder="2500" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Property Type</label>
+                        <select class="form-control" id="property-type" required>
+                            <option value="">Select property type</option>
+                            <option value="flat">Flat</option>
+                            <option value="house">House</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Number of Bedrooms</label>
+                        <select class="form-control" id="property-bedrooms" required>
+                            <option value="">Select bedrooms</option>
+                            <option value="studio">Studio</option>
+                            <option value="1">1 bedroom</option>
+                            <option value="2">2 bedrooms</option>
+                            <option value="3">3 bedrooms</option>
+                            <option value="4+">4+ bedrooms</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Add Property</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Survey -->
+        <div id="survey" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-dashboard-3">‹ Back</button>
+                    <h3>Expression of Interest</h3>
+                </div>
+                <div class="survey-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="survey-progress"></div>
+                    </div>
+                    <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">4</span></span>
+                </div>
+                <div class="survey-question" id="survey-container">
+                    <!-- Survey questions will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notifications" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-dashboard-4">‹ Back</button>
+                    <h3>Notifications</h3>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <div class="notification-icon">💰</div>
+                        <div class="notification-content">
+                            <h4>New Guaranteed Rent Offer</h4>
+                            <p>Your annual rent offer of £91,000 is ready for review</p>
+                            <span class="notification-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon">🏠</div>
+                        <div class="notification-content">
+                            <h4>Property Management Update</h4>
+                            <p>Monthly report for Shoreditch property is available</p>
+                            <span class="notification-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help & Support -->
+        <div id="help" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-dashboard-5">‹ Back</button>
+                    <h3>Help & Support</h3>
+                </div>
+                <div class="help-sections">
+                    <div class="help-section">
+                        <h4>Frequently Asked Questions</h4>
+                        <div class="faq-item">
+                            <div class="faq-question">How does the competition work?</div>
+                            <div class="faq-answer">Buy tickets for £1-£10, enter the monthly draw, and you could win a year's free rent in London!</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">When are the draws?</div>
+                            <div class="faq-answer">Draws happen monthly. The next draw is December 15, 2025.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">How does guaranteed rent work for landlords?</div>
+                            <div class="faq-answer">We pay you the full annual rent upfront and handle all property management responsibilities.</div>
+                        </div>
+                    </div>
+                    <div class="help-section">
+                        <h4>Contact Support</h4>
+                        <div class="contact-options">
+                            <button class="btn btn--outline btn--full-width" id="email-support-btn">📧 Email Support</button>
+                            <button class="btn btn--outline btn--full-width" id="call-support-btn">📞 Call Us</button>
+                            <button class="btn btn--outline btn--full-width" id="feedback-btn">💬 Send Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Form -->
+        <div id="feedback-form" class="screen">
+            <div class="screen-content">
+                <div class="header-bar">
+                    <button class="btn-back" id="back-to-help">‹ Back</button>
+                    <h3>Send Feedback</h3>
+                </div>
+                <form class="feedback-form" id="feedback-form-element">
+                    <div class="form-group">
+                        <label class="form-label">Feedback Type</label>
+                        <select class="form-control" required>
+                            <option value="">Select type</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="general">General Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Feedback</label>
+                        <textarea class="form-control" rows="5" placeholder="Tell us what you think..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Send Feedback</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Messages -->
+        <div id="success-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <div class="success-icon">✅</div>
+                <h3 id="success-title">Success!</h3>
+                <p id="success-message">Your action has been completed successfully.</p>
+                <button class="btn btn--primary" id="success-continue-btn">Continue</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
